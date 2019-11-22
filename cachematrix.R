@@ -1,3 +1,4 @@
+# This function creates the matrix object
 makeCacheMatrix <- function(x = numeric()) {
   m <- NULL
   set <- function(y) {
@@ -10,6 +11,10 @@ makeCacheMatrix <- function(x = numeric()) {
   list(set = set, get = get, set.inv = set.inv, get.inv = get.inv)
 }
 
+# This function:
+# 1) returns the cached value for the inverse,
+#    if it has already been calculated or;
+# 2) calculates the inverse, caches and returns it
 cacheSolve <- function(x, ...) {
   m <- x$get.inv()
   if(!is.null(m)) {
